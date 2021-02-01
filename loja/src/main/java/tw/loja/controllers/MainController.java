@@ -29,22 +29,39 @@ public class MainController {
 
     @GetMapping(value = "/advanced_search")
     public String advanced_search(Principal principal){
-        System.out.println("Teste1:"+ principal);
-        if(principal == null)
             return "advanced_search";
-        else
-            return "index";
     }
 
+    @GetMapping(value = "/index")
+    public String index(Principal principal){
+        return "index";
+    }
+
+    @GetMapping(value = "/product")
+    public String product(Principal principal){
+        return "product";
+    }
 
     @GetMapping(value = "/login")
-    public String login(Principal principal){
-        System.out.println("Teste1:"+ principal);
-        if(principal == null)
+    public String getLogin(Principal principal){
+        if(principal == null) {
+            System.out.println("1");
             return "login";
-        else
-            return "index";
+        }else{
+        System.out.println("2");
+            return "index";}
     }
+
+    @PostMapping(value = "/login")
+    public String loginPost(@ModelAttribute("Utilizador") Utilizador utilizador) {
+        System.out.println("login2"+utilizador.getUsername());
+        if(utilizadorService.findUtilizador(utilizador.getUsername(), utilizador.getPassword(), null)) {
+            System.out.println("merda");
+            return "login";
+
+        }return "join";
+    }
+
 
 
     @GetMapping(value = "/join")

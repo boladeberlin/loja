@@ -67,6 +67,8 @@ public class Utilizador {
                 '\'' +
                 ", password='" + password + 
                 '\'' +
+                ", email='" + email +
+                '\'' +
                 ", enable=" + enable +
                 '}';
     }

@@ -39,4 +39,14 @@ public class UtilizadorService {
         this.permissaoRepository.save(permissao);
         return true;
     }
+
+    public boolean findUtilizador(String username, String password, String email) {
+        if(this.utilizadorRepository.findByUsernameAndPassword(username,password) != null)
+            return false;
+
+        if(password.isEmpty())
+            return false;
+
+        return true;
+    }
 }
