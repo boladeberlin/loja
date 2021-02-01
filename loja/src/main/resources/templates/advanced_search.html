@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
+		<title>Blaze It</title>
+		<link rel="stylesheet" href="search.css">
+		<link rel = "icon" href ="Media/Home/logo.png" type = "image/x-icon"> 
+	</head>
+	
+	<body id="home">
+		<div id="header">
+			<a href="index.html"><img src="Media/Home/logo.png" class="logo"></a>
+			<div class="search-container">
+				<form action="X">
+					<input type="text" placeholder="Search.." name="search">
+					<button type="submit">Pesquisa </button>
+				</form>
+				<a href="advanced_search" class="asearch">Advanced Search</a>
+			</div>
+			
+		</div>
+		<div id="show">
+			<div id="search">
+				<form th:action="@{/advanced_search}" method="post">
+					<div class="brands">
+						<p>Marcas</p>
+						<input type="checkbox" id="brand1" name="brand1" value="Zippo">
+						<label for="Zippo">Zippo</label>
+						<input type="checkbox" id="brand2" name="brand2" value="Clipper">
+						<label for="Clipper">Clipper</label>
+						<input type="checkbox" id="brand3" name="brand3" value="Cohiba">
+						<label for="Cohiba">Cohiba</label>
+						<input type="checkbox" id="brand4" name="brand4" value="Outras">
+						<label for="Outras">Outras</label>
+					</div>
+					
+					<div class="fuel">
+						<p>Combústivel</p>
+						<input type="checkbox" id="fuel1" name="fuel1" value="Gás">
+						<label for="Gás">Gás</label>
+						<input type="checkbox" id="fuel2" name="fuel2" value="Benzina">
+						<label for="Benzina">Benzina</label>
+						<input type="checkbox" id="fuel3" name="fuel3" value="Eletrico">
+						<label for="Eletrico">Eletrico</label>
+					</div>
+					
+					<div class="color">
+						<p>Cor</p>
+						<input type="checkbox" id="cor1" name="cor1" value="Azul">
+						<label for="Azul">Azul</label>
+						<input type="checkbox" id="cor2" name="cor2" value="Amarelo">
+						<label for="Amarelo">Amarelo</label>
+						<input type="checkbox" id="cor3" name="cor3" value="Verde">
+						<label for="Verde">Verde</label>
+						<input type="checkbox" id="cor4" name="cor4" value="Vermelho">
+						<label for="Vermelho">Vermelho</label>
+						<input type="checkbox" id="cor5" name="cor5" value="Rosa">
+						<label for="Rosa">Rosa</label>
+						<br><br>
+						<input type="checkbox" id="cor6" name="cor6" value="Roxo">
+						<label for="Roxo">Roxo</label>
+						<input type="checkbox" id="cor7" name="cor7" value="Dourado">
+						<label for="Dourado">Dourado</label>
+						<input type="checkbox" id="cor8" name="cor8" value="Prata">
+						<label for="Verde">Verde</label>
+						<input type="checkbox" id="cor9" name="cor9" value="Preto">
+						<label for="Preto">Preto</label>
+						<input type="checkbox" id="cor10" name="cor10" value="Branco">
+						<label for="Branco">Branco</label>
+					</div>
+					
+					<div class="prange">
+						<p>Valor</p>
+						<label for="min_price">de: </label>
+						<input type="text" id="min_price" name="min_price" value="0€">
+						<label for="max_price">a:</label>
+						<input type="text" id="max_price" name="max_price" value="5000€">
+					</div>
+					
+					<input type="submit" value="Pesquisar">
+					
+				</form>
+			</div>
+			
+			<div id="categories">
+				<a href="#">Clippers</a>
+				<a href="#">Eletricos</a>
+				<a href="#">Zippos</a>
+				<a href="#">Wind Proof</a>
+				<a href="#">Outros</a>
+			</div>
+		</div>
+		<div id="about">
+			<a href="X">About this page</a>
+		</div>
+		
+	</body>
+</html>

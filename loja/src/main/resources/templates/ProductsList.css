@@ -1,0 +1,293 @@
+body{
+	background-image: url("Media/Home/background.jpg");
+	background-size: 100%;
+		
+}
+
+body#home a#homenav,
+body#products a#prodnav,
+body#faq a#faqnav,
+body#contact a#connav {
+	color: #fff;
+	background: #930;
+}
+
+#header{
+	
+	background-size: 100% 100%;
+	margin-bottom:20px;
+	width:100%;
+
+}
+	.brand{
+		text-align:center;
+	}
+	.logo{
+		
+		width:250px;
+	}
+	
+	#header .search-container {
+		float: right;
+		display:block;
+		margin-top:50px;
+	}
+	
+	#header .search-container form{
+		float: left;
+	}
+	
+	#header input[type=text] {
+		padding: 6px;
+		border: none;
+		margin-right: 5px;
+		font-size: 17px;
+	}
+	  
+	#header button[type=submit] {
+		padding: 6px;
+		border: none;
+		margin-right: 5px;
+		font-size: 17px;
+		border-top: 1px solid #CCCCCC;
+		border-right: 1px solid #333333;
+		border-bottom: 1px solid #333333;
+		border-left: 1px solid #CCCCCC;
+	  }
+	  
+	.asearch {
+		display:inline-block;
+		text-top:50px;
+		font: bold 18px Arial;
+		text-decoration: none;
+		background-color: #eeeeee;
+		color: #333333;
+		padding: 7px 6px 4px 6px;
+		border-top: 1px solid #CCCCCC;
+		border-right: 1px solid #333333;
+		border-bottom: 1px solid #333333;
+		border-left: 1px solid #CCCCCC;
+	}
+	
+	@media screen and (max-width: 750px) {
+		.logo{
+			left:5px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 200px;
+		}
+		#header .search-container form{
+			float: none;
+			text-align:center;
+		}
+		#header .search-container {
+			float:none;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			text-align:center;
+		
+		}
+		
+		
+		#header .search-container .asearch{
+			display:inline-block;
+			text-align:center;
+			
+		}
+	}
+
+
+#categories{
+	width:20%;
+	background-color:rgb(0,0,0,0.8);
+	padding-top: 5px;
+	position:fixed;
+	overflow:hidden;
+	display:block;
+	margin:auto;
+}
+
+#categories a{
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+}
+
+#categories a:hover{
+	color: #f1f1f1;
+}
+
+#categories a:active{
+	color: black;
+	background-color:white;
+	font-weight:bold;
+}
+
+#products{
+	background-color:rgb(0,0,0,0.8);
+	overflow:hidden;
+	color:white;
+	float:right;
+	margin:auto;
+	margin-bottom:25px;
+	display:block;
+	width:78%
+}
+
+	#products .pages > .page:target ~ .page:last-child,
+	
+	#products .pages > .page{
+		display:none;
+	}
+	#products .pages > :last-child,
+	
+	#products .pages > .page:target {
+		display:block;
+	}
+	.counter{
+		margin:10px 10px 10px 10px;
+		text-align:center;
+		font-size:20px;
+	}
+	.produto{
+		border-bottom-style:solid;
+		border-bottom-color:grey;
+		overflow:hidden;
+	}
+	.texto{
+		margin-top:20px;
+		
+	}
+	
+	.modelo{
+		font-family:"Arial Black", Gadget, sans-serif;
+		font-size:40px;
+		margin-left:20px;
+	}
+	
+	.modelo a{
+		text-decoration:none;
+		color:orange;
+	}
+	.modelo a:hover{
+		color:red;
+	}
+	
+	.descrição{
+		font-family:"Lucida Console", Monaco, monospace;
+		font-size:20px;
+		margin-top:20px;
+		margin-left:20px;
+	}
+	
+	.preço{
+		font-family:Impact, Charcoal, sans-serif;
+		font-size:50px;
+		margin-top:20px;
+		margin-left:20px;
+		}
+	
+	.page img{
+		width:227px;
+		margin-top: 20px;
+		margin-left:20px;
+		margin-bottom:20px;
+		margin-right:20px;
+		float:left;
+	}
+	@media screen and (max-width: 690px) {
+		.page img{
+			width:180px;
+		}
+	}
+	
+	@media screen and (max-width: 600px) {
+		.page img{
+			width:124px;
+		}
+		
+		.modelo{
+			font-size:20px;
+			margin-left:20px;
+		}
+		
+		.descrição{
+			font-size:10px;
+			margin-top:20px;
+			margin-left:20px;
+		}
+		
+		.preço{
+			font-size:25px;
+			margin-top:20px;
+			margin-left:20px;
+		}
+	}
+	
+	.navpages a {
+		color: white;
+		padding: 8px 16px;
+		text-decoration: none;
+		transition: background-color .3s;
+		border: 1px solid grey;
+		margin: 0 4px;
+	}
+
+	.navpages a:active {
+		background-color: #4CAF50;
+		color: white;
+		border: 1px solid #4CAF50;
+	}
+
+	.navpages a:hover {
+		background-color: white;
+		color:black;
+	}
+	
+	.navpages{
+		overflow:visible;
+		text-align:center;
+		margin-bottom:20px;
+		margin-top:20px;
+	}
+
+
+@media screen and (max-width: 750px) {
+	#categories{
+		margin-top:25px;
+		width:100%;
+		padding-top: 20px;
+		position:relative;
+		overflow:hidden;
+		margin-bottom:25px;
+	}
+	
+	#products{
+		width:100%;
+		float:none;
+	}
+}
+
+#about{
+	background-color:rgb(0,0,0,0.8);
+	font-family:Impact, Charcoal, sans-serif;
+	width:100%;
+	text-align:left;
+	clear:both;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+
+#about a{
+	text-decoration:none;
+	color:orange;
+	padding-left:50px;
+}
+
+#about a:hover{
+	color:red;
+}

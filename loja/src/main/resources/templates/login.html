@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<style type="text/css">
+
+		::placeholder {
+			color: #040404;
+			font-weight: bold;
+			opacity: 0.75;
+		}
+
+		.Login{
+			background-color: Transparent;
+			background-repeat:no-repeat;
+			border: none;
+			cursor:pointer;
+			color: #ffffff;
+			overflow: hidden;
+			outline:none;
+			font-weight: bold; font-size: 25px;
+		}
+
+		.LoginJoinText{
+			color: #dcdcdc;
+			font-weight: bold;
+			font-size: 25px;
+		}
+
+	</style>
+
+</head>
+<body style="background-color: #212121">
+
+<div class="row align-items-center" style="margin: 0">
+	<div class="col">
+		<form th:action="@{/login}" method="post" style="text-align: center; padding-top: 100px">
+			<span style="font-size: 46px; line-height: 1.7; font-weight: bolder">LOGIN</span>
+			<div th:if="${param.logout}" style="color: red">Fez log out.</div>
+			<div th:if="${param.error}" style="color: red">Username ou palavra-passe errados.</div>
+			<div style="padding-top: 40px"> <input type="text" name="username" placeholder="USERNAME" style="text-align: center;height: 40px; width: 30%; color: #212121"/></div>
+			<div style="padding-top: 20px"> <input type="password" name="password" placeholder="PASSWORD" style="text-align: center;height: 40px; width: 30%; color: #212121"/></div>
+			<div style="padding-top: 10px">
+				<input class="Login" type="submit" value="OK">
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
