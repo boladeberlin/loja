@@ -3,6 +3,7 @@
 	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
+
 	<style type="text/css">
 
 		::placeholder {
@@ -34,6 +35,8 @@
 <body style="background-color: #212121">
 <div class="row align-items-center" style="margin: 0">
 	<div class="col">
+
+
 		<form th:action="@{/login}" method="post" style="text-align: center; padding-top: 100px">
 			<span style="font-size: 46px; line-height: 1.7; font-weight: bolder">LOGIN</span>
 			<div th:if="${param.logout}" style="color: red">Fez log out.</div>
@@ -44,6 +47,7 @@
 				<input class="Login" type="submit" value="OK">
 			</div>
 		</form>
+
 	</div>
 </div>
 </body>

@@ -25,6 +25,11 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping(value="/productdisplay")
+    public String product(Model product) {
+        return "productdisplay";
+    }
+
     @GetMapping(value = "/login")
     public String login(Principal principal){
         if(principal == null)
