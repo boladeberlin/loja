@@ -27,7 +27,6 @@ create table encomendas(
 create table utilizador(
     username varchar(50) not null primary key,
     password varchar(500) not null,
-    email varchar(50) not null,
     enable bool not null
 );
 

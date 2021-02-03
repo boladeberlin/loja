@@ -33,14 +33,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             throws Exception {
             auth.jdbcAuthentication().dataSource(dataSource)
                     .usersByUsernameQuery("select username, password, enable from utilizador where username = ?;")
-                    .authoritiesByUsernameQuery("select username, cargo from autorizacao where username = ?;");
+                    .authoritiesByUsernameQuery("select username, cargo from permissao where username = ?;");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/", "/index", "/join", "/advanced_search", "/product").permitAll()
+            .antMatchers("/", "/index", "/join" ).permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()

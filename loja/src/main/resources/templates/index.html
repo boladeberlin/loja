@@ -1,4 +1,6 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
@@ -16,8 +18,22 @@
 					<button type="submit">Pesquisa </button>
 				</form>
 				<a href="advanced_search" class="asearch">Advanced Search</a>
-				<a href="login" class="asearch">Sign In</a>
-				<a href="join" class="asearch">Sign Up</a>
+				<!--NÃO LOGGED IN-->
+				<div sec:authorize="isAnonymous()">
+					<a th:href="@{/login}">Login</a>
+					<span style="padding-left: 10px; padding-right: 10px"> | </span>
+					<a th:href="@{/join}">Join</a>
+				</div>
+
+				<!--LOGGED IN-->
+				<div sec:authorize="isAuthenticated()">
+					<span>Olá, </span>
+					<a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
+					<span style="padding-left: 10px; padding-right: 10px"> | </span>
+					<form th:action="@{/logout}" method="post" style="display: inline-block;">
+						<input type="submit" class="signOut" value="Logout">
+					</form>
+				</div>
 			</div>
 			
 		</div>

@@ -17,7 +17,7 @@ public class UtilizadorService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean createUtilizador(String username, String password, String email) {
+    public boolean createUtilizador(String username, String password) {
         if(this.utilizadorRepository.findByUsername(username) != null)
             return false;
 
@@ -27,7 +27,6 @@ public class UtilizadorService {
         Utilizador novo = new Utilizador();
         novo.setUsername(username);
         novo.setPassword(this.passwordEncoder.encode(password));
-        novo.setEmail(email);
         novo.setEnable(true);
 
         this.utilizadorRepository.save(novo);
@@ -40,7 +39,7 @@ public class UtilizadorService {
         return true;
     }
 
-    public boolean findUtilizador(String username, String password, String email) {
+    public boolean findUtilizador(String username, String password) {
         if(this.utilizadorRepository.findByUsernameAndPassword(username,password) != null)
             return false;
 
