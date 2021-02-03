@@ -5,13 +5,22 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
 		<title>Blaze It</title>
-		<link rel="stylesheet" type="text/css" th:href="@{/static/ProductsList.css}"/>
-		<link rel = "icon" th:href ="@{static/Home/logo.png}" type = "image/x-icon">
+		<link rel="stylesheet" type="text/css" href="ProductsList.css"/>
+		<link rel = "icon" th:href ="@{/home/logo.png}" type = "image/x-icon">
+
+		<style>
+			body {
+				background-image: url('/home/background.jpg');
+				background-size: 100%;
+			}
+		</style>
 	</head>
 	
 	<body id="home">
 		<div id="header">
-			<a href="/"><img th:src="@{resources/static/Home/logo.png}" class="logo"></a>
+			<a href="/"><img src="home/logo.png" class="logo"></a>
+
+
 			<div class="search-container">
 				<form action="X">
 					<input type="text" placeholder="Search.." name="search">
@@ -45,7 +54,7 @@
 					<div class="page" id="page1">
 						<div class="produto">
 							<a href="product">
-								<img th:src="@{/static/Products/Clippers/clipper1.jpg}"></a>
+								<img src="Products/Clippers/clipper1.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -54,7 +63,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Eletrico/eletrico1.jpg}"></a>
+							<a href="product"><img src="/Products/Eletrico/eletrico1.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -63,7 +72,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Others/outro1.jpg}"></a>
+							<a href="product"><img src="/Products/Others/outro1.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -72,7 +81,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/WindProof/windproof1.jpg}"></a>
+							<a href="product"><img src="/Products/WindProof/windproof1.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -81,7 +90,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Zippos/zippo1.jpg}"></a>
+							<a href="product"><img src="/Products/Zippos/zippo1.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -92,7 +101,7 @@
 					
 					<div class="page" id="page2">
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Clippers/clipper2.jpg}"></a>
+							<a href="product"><img src="/Products/Clippers/clipper2.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -101,7 +110,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Eletrico/eletrico2.jpg}"></a>
+							<a href="product"><img src="/Products/Eletrico/eletrico2.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -110,7 +119,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Others/outro2.jpg}"></a>
+							<a href="product"><img src="/Products/Others/outro2.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -119,7 +128,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/WindProof/windproof2.jpg}"></a>
+							<a href="product"><img src="/Products/WindProof/windproof2.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -128,7 +137,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Zippos/zippo2.jpg}"></a>
+							<a href="product"><img src="/Products/Zippos/zippo2.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -139,7 +148,7 @@
 					
 					<div class="page" id="page3">
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Clippers/clipper3.jpg}"></a>
+							<a href="product"><img src="/Products/Clippers/clipper3.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -148,7 +157,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Eletrico/eletrico3.jpg}"></a>
+							<a href="product"><img src="/Products/Eletrico/eletrico3.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -157,7 +166,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Others/outro3.jpg}"></a>
+							<a href="product"><img src="/Products/Others/outro3.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -166,7 +175,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/WindProof/windproof3.jpg}"></a>
+							<a href="product"><img src="/Products/WindProof/windproof3.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -175,7 +184,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Zippos/zippo3.jpg}"></a>
+							<a href="product"><img src="/Products/Zippos/zippo3.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -186,7 +195,7 @@
 					
 					<div class="page" id="page4">
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Clippers/clipper4.jpg}"></a>
+							<a href="product"><img src="/Products/Clippers/clipper4.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -195,7 +204,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Eletrico/eletrico4.jpg}"></a>
+							<a href="product"><img src="/Products/Eletrico/eletrico4.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -204,7 +213,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Others/outro4.jpg}"></a>
+							<a href="product"><img src="/Products/Others/outro4.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -213,7 +222,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/WindProof/windproof4.jpg}"></a>
+							<a href="product"><img src="/Products/WindProof/windproof4.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -222,7 +231,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Zippos/zippo4.jpg}"></a>
+							<a href="product"><img src="/Products/Zippos/zippo4.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -233,7 +242,7 @@
 					
 					<div class="page" id="page5">
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Clippers/clipper5.jpg}"></a>
+							<a href="product"><img src="/Products/Clippers/clipper5.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -242,7 +251,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Eletrico/eletrico5.jpg}"></a>
+							<a href="product"><img src="/Products/Eletrico/eletrico5.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -251,7 +260,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Others/outro5.jpg}"></a>
+							<a href="product"><img src="/Products/Others/outro5.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -260,7 +269,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/WindProof/windproof5.jpg}"></a>
+							<a href="product"><img src="/Products/WindProof/windproof5.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
@@ -269,7 +278,7 @@
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img th:src="@{/static/Products/Zippos/zippo5.jpg}"></a>
+							<a href="product"><img src="/Products/Zippos/zippo5.jpg"></a>
 							<div class="texto">
 								<div class="modelo"><a href="product">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>

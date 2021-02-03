@@ -1,18 +1,25 @@
 package tw.loja.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import tw.loja.data.Utilizador;
+import org.springframework.web.servlet.resource.PathResourceResolver;
 //import tw.loja.services.RegistoService;
+import tw.loja.security.StaticResourceConfiguration;
 import tw.loja.services.UtilizadorService;
 
 import java.security.Principal;
 
 
 @Controller
-public class MainController {
+public class MainController extends StaticResourceConfiguration {
+
+
     @Autowired
     private UtilizadorService utilizadorService;
 
@@ -25,17 +32,13 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping(value="/productdisplay")
-    public String product(Model product) {
-        return "productdisplay";
-    }
 
     @GetMapping(value = "/login")
     public String login(Principal principal){
         if(principal == null)
             return "login";
         else
-            return "index";
+            return home(null);
     }
 
     @GetMapping(value = "/join")
