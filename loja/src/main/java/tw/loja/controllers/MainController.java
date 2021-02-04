@@ -12,10 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import tw.loja.data.Produto;
 import tw.loja.data.Utilizador;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 //import tw.loja.services.RegistoService;
 import tw.loja.security.StaticResourceConfiguration;
+import tw.loja.services.ProdutoService;
 import tw.loja.services.UtilizadorService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +33,8 @@ public class MainController extends StaticResourceConfiguration {
 
     @Autowired
     private UtilizadorService utilizadorService;
+    @Autowired
+    private ProdutoService produtoService;
 
     //@Autowired
     //private RegistoService registoService;
@@ -58,15 +62,23 @@ public class MainController extends StaticResourceConfiguration {
 
 
     @GetMapping("/admin")
-    public String getUsers() {
+    public String getUsers(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
+            Produto novo = new Produto();
+            model.addAttribute("Produto", novo);
             return "admin";
         }else{
             return "index";
         }
     }
 
+    @PostMapping(value = "/admin")
+    public String admninPost(@ModelAttribute("Produto") Produto produto) {
+        if(produtoService.createProduto(produto.getId(),produto.getNome(),produto.getPreco(),produto.getCor(), produto.getMarca(), produto.getFuel(),produto.getTipo()))
+            return "admin";
+        return "admin";
+    }
 
     @GetMapping(value = "/login")
     public String login(Principal principal){

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Produto {
     @Id
     @Column(name = "id")
-    private int id;
+    private long id;
     @Column(name = "nome")
     private String nome;
     @Column(name = "preco")
@@ -19,23 +19,30 @@ public class Produto {
     private String cor;
     @Column(name = "marca")
     private String marca;
+    @Column(name = "fuel")
+    private String fuel;
     @Column(name = "tipo")
     private String tipo;
 
-    public Produto(int id, String nome, float preco, String cor, String marca, String tipo) {
+    public Produto(long id, String nome, float preco, String cor, String marca, String fuel, String tipo) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.cor = cor;
         this.marca = marca;
+        this.fuel = fuel;
         this.tipo = tipo;
     }
 
-    public int getId() {
+    public Produto() {
+
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -71,6 +78,13 @@ public class Produto {
         this.marca = marca;
     }
 
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
     public String getTipo() {
         return tipo;
     }

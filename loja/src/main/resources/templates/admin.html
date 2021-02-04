@@ -40,64 +40,70 @@
 <div id="show">
     Esta é a página ADMIN
     <div id="search">
-        <form th:action="@{/advanced_search}" method="post">
+        <form th:action="@{/admin}" th:object="${Produto}"method="post">
+            <div class="prange">
+                <input type="text" th:field="*{nome}" placeholder="Nome do produto" name="search"/>
+            </div>
+
+            <div class="prange">
+                <input type="text" th:field="*{id}" placeholder="" name="search"/>
+            </div>
+
+
             <div class="brands">
                 <p>Marcas</p>
-                <input type="checkbox" id="brand1" name="brand1" value="Zippo">
-                <label for="Zippo">Zippo</label>
-                <input type="checkbox" id="brand2" name="brand2" value="Clipper">
-                <label for="Clipper">Clipper</label>
-                <input type="checkbox" id="brand3" name="brand3" value="Cohiba">
-                <label for="Cohiba">Cohiba</label>
-                <input type="checkbox" id="brand4" name="brand4" value="Outras">
-                <label for="Outras">Outras</label>
+                <input id = "brand1" name="marca" type = "radio" value="Zippo" th:field="*{marca}"/>
+                <label for = "brand1">Zippo</label>
+                <input id = "brand2" name="marca" type = "radio" value="Clipper" th:field="*{marca}"/>
+                <label for = "brand2">Clipper</label>
+                <input id = "brand3" name="marca" type = "radio" value="Cohiba" th:field="*{marca}"/>
+                <label for = "brand3">Cohiba</label>
+                <input id = "brand4" name="marca" type = "radio" value="Outro" th:field="*{marca}"/>
+                <label for = "brand4">Outro</label>
             </div>
 
             <div class="fuel">
                 <p>Combústivel</p>
-                <input type="checkbox" id="fuel1" name="fuel1" value="Gás">
-                <label for="Gás">Gás</label>
-                <input type="checkbox" id="fuel2" name="fuel2" value="Benzina">
-                <label for="Benzina">Benzina</label>
-                <input type="checkbox" id="fuel3" name="fuel3" value="Eletrico">
-                <label for="Eletrico">Eletrico</label>
+                <input id = "fuel1" name="fuel" type = "radio" value="Gás" th:field="*{fuel}"/>
+                <label for = "fuel1">Gás</label>
+                <input id = "fuel2" name="fuel" type = "radio" value="Benzina" th:field="*{fuel}"/>
+                <label for = "fuel2">Benzina</label>
+                <input id = "fuel3" name="fuel" type = "radio" value="Eletrico" th:field="*{fuel}"/>
+                <label for = "fuel3">Eletrico</label>
             </div>
 
             <div class="color">
                 <p>Cor</p>
-                <input type="checkbox" id="cor1" name="cor1" value="Azul">
-                <label for="Azul">Azul</label>
-                <input type="checkbox" id="cor2" name="cor2" value="Amarelo">
-                <label for="Amarelo">Amarelo</label>
-                <input type="checkbox" id="cor3" name="cor3" value="Verde">
-                <label for="Verde">Verde</label>
-                <input type="checkbox" id="cor4" name="cor4" value="Vermelho">
-                <label for="Vermelho">Vermelho</label>
-                <input type="checkbox" id="cor5" name="cor5" value="Rosa">
-                <label for="Rosa">Rosa</label>
+                <input type="checkbox" id="cor1" name="cor1" value="Azul"/>
+                <label for="cor1">Azul</label>
+                <input type="checkbox" id="cor2" name="cor2" value="Amarelo"/>
+                <label for="cor2">Amarelo</label>
+                <input type="checkbox" id="cor3" name="cor3" value="Verde"/>
+                <label for="cor3">Verde</label>
+                <input type="checkbox" id="cor4" name="cor4" value="Vermelho"/>
+                <label for="cor4">Vermelho</label>
+                <input type="checkbox" id="cor5" name="cor5" value="Rosa"/>
+                <label for="cor5">Rosa</label>
                 <br><br>
-                <input type="checkbox" id="cor6" name="cor6" value="Roxo">
-                <label for="Roxo">Roxo</label>
-                <input type="checkbox" id="cor7" name="cor7" value="Dourado">
-                <label for="Dourado">Dourado</label>
-                <input type="checkbox" id="cor8" name="cor8" value="Prata">
-                <label for="Verde">Verde</label>
-                <input type="checkbox" id="cor9" name="cor9" value="Preto">
-                <label for="Preto">Preto</label>
-                <input type="checkbox" id="cor10" name="cor10" value="Branco">
-                <label for="Branco">Branco</label>
+                <input type="checkbox" id="cor6" name="cor6" value="Roxo"/>
+                <label for="cor6">Roxo</label>
+                <input type="checkbox" id="cor7" name="cor7" value="Dourado"/>
+                <label for="cor7">Dourado</label>
+                <input type="checkbox" id="cor8" name="cor8" value="Prata"/>
+                <label for="cor8">Verde</label>
+                <input type="checkbox" id="cor9" name="cor9" value="Preto"/>
+                <label for="cor9">Preto</label>
+                <input type="checkbox" id="cor10" name="cor10" value="Branco"/>
+                <label for="cor10">Branco</label>
             </div>
 
             <div class="prange">
                 <p>Valor</p>
-                <label for="min_price">de: </label>
-                <input type="text" id="min_price" name="min_price" value="0€">
-                <label for="max_price">a:</label>
-                <input type="text" id="max_price" name="max_price" value="5000€">
+                <label for="price">Valor: </label>
+                <input type="text" th:field="*{preco}" id="price" name="min_price" value="0€"/>
             </div>
 
-            <input type="submit" value="Pesquisar">
-
+            <input type="submit" value="Introduzir"/>
         </form>
     </div>
 
