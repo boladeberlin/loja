@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguratio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,17 +55,16 @@ public class MainController extends StaticResourceConfiguration {
         return "productdisplay";
     }
 
-    @GetMapping(value="/admin")
-    public String admin(Model model) {
-        Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)
-                SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 
-        System.out.println(authorities);
 
-        if (authorities.equals("ROLE_ADMIN"))
+    @GetMapping("/admin")
+    public String getUsers() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
             return "admin";
-        else
+        }else{
             return "index";
+        }
     }
 
 

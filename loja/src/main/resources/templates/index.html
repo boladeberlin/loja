@@ -36,8 +36,7 @@
 
 				<!--LOGGED IN-->
 				<div sec:authorize="isAuthenticated()">
-					<span style="color:white">Olá,  </span>
-					<a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
+					<span style="color:white">Olá, [[${#httpServletRequest.remoteUser}]]! </span>
 					<span style="padding-left: 10px; padding-right: 10px"> | </span>
 					<form th:action="@{/logout}" method="post" style="display: inline-block;">
 						<input type="submit" class="signOut" value="Logout">

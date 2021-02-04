@@ -1,7 +1,11 @@
 create table produto(
     id serial primary key,
     nome varchar(50) not null,
-    preco decimal(5,2) not null
+    preco decimal(5,2) not null,
+    cor varchar(50),
+    marca varchar(50),
+    fuel varchar(50),
+    tipo varchar(50)
 );
 
 create table carrinhocompras(
