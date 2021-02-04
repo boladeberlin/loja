@@ -61,10 +61,10 @@ public class MainController extends StaticResourceConfiguration {
 
         System.out.println(authorities);
 
-        if (authorities.equals("ADMIN"))
+        if (authorities.equals("ROLE_ADMIN"))
             return "admin";
         else
-            return "error";
+            return "index";
     }
 
 
