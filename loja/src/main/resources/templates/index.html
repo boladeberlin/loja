@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
 		<title>Blaze It</title>
 		<link rel="stylesheet" type="text/css" href="ProductsList.css"/>
-		<link rel = "icon" th:href ="@{/home/logo.png}" type = "image/x-icon">
+		<link rel = "icon" href ="home/logo.png" type = "image/x-icon">
 
 		<style>
 			body {
@@ -36,7 +36,7 @@
 
 				<!--LOGGED IN-->
 				<div sec:authorize="isAuthenticated()">
-					<span>Olá, </span>
+					<span style="color:white">Olá,  </span>
 					<a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
 					<span style="padding-left: 10px; padding-right: 10px"> | </span>
 					<form th:action="@{/logout}" method="post" style="display: inline-block;">
@@ -53,46 +53,46 @@
 					
 					<div class="page" id="page1">
 						<div class="produto">
-							<a href="product">
-								<img src="Products/Clippers/clipper1.jpg"></a>
+							<a href="productdisplay">
+								<img src="products/Clippers/clipper1.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Eletrico/eletrico1.jpg"></a>
+							<a href="productdisplay"><img src="products/Eletrico/eletrico1.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Others/outro1.jpg"></a>
+							<a href="productdisplay"><img src="products/Others/outro1.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/WindProof/windproof1.jpg"></a>
+							<a href="productdisplay"><img src="products/WindProof/windproof1.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Zippos/zippo1.jpg"></a>
+							<a href="productdisplay"><img src="products/Zippos/zippo1.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
@@ -101,45 +101,45 @@
 					
 					<div class="page" id="page2">
 						<div class="produto">
-							<a href="product"><img src="/Products/Clippers/clipper2.jpg"></a>
+							<a href="productdisplay"><img src="products/Clippers/clipper2.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Eletrico/eletrico2.jpg"></a>
+							<a href="productdisplay"><img src="products/Eletrico/eletrico2.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Others/outro2.jpg"></a>
+							<a href="productdisplay"><img src="products/Others/outro2.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/WindProof/windproof2.jpg"></a>
+							<a href="productdisplay"><img src="products/WindProof/windproof2.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Zippos/zippo2.jpg"></a>
+							<a href="productdisplay"><img src="products/Zippos/zippo2.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
@@ -148,45 +148,45 @@
 					
 					<div class="page" id="page3">
 						<div class="produto">
-							<a href="product"><img src="/Products/Clippers/clipper3.jpg"></a>
+							<a href="productdisplay"><img src="products/Clippers/clipper3.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Eletrico/eletrico3.jpg"></a>
+							<a href="productdisplay"><img src="products/Eletrico/eletrico3.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Others/outro3.jpg"></a>
+							<a href="productdisplay"><img src="products/Others/outro3.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/WindProof/windproof3.jpg"></a>
+							<a href="productdisplay"><img src="products/WindProof/windproof3.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Zippos/zippo3.jpg"></a>
+							<a href="productdisplay"><img src="products/Zippos/zippo3.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
@@ -195,45 +195,45 @@
 					
 					<div class="page" id="page4">
 						<div class="produto">
-							<a href="product"><img src="/Products/Clippers/clipper4.jpg"></a>
+							<a href="productdisplay"><img src="products/Clippers/clipper4.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Eletrico/eletrico4.jpg"></a>
+							<a href="productdisplay"><img src="products/Eletrico/eletrico4.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Others/outro4.jpg"></a>
+							<a href="productdisplay"><img src="products/Others/outro4.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/WindProof/windproof4.jpg"></a>
+							<a href="productdisplay"><img src="products/WindProof/windproof4.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Zippos/zippo4.jpg"></a>
+							<a href="productdisplay"><img src="products/Zippos/zippo4.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
@@ -242,45 +242,45 @@
 					
 					<div class="page" id="page5">
 						<div class="produto">
-							<a href="product"><img src="/Products/Clippers/clipper5.jpg"></a>
+							<a href="productdisplay"><img src="products/Clippers/clipper5.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Eletrico/eletrico5.jpg"></a>
+							<a href="productdisplay"><img src="products/Eletrico/eletrico5.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Others/outro5.jpg"></a>
+							<a href="productdisplay"><img src="products/Others/outro5.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/WindProof/windproof5.jpg"></a>
+							<a href="productdisplay"><img src="products/WindProof/windproof5.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
 						
 						<div class="produto">
-							<a href="product"><img src="/Products/Zippos/zippo5.jpg"></a>
+							<a href="productdisplay"><img src="products/Zippos/zippo5.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="product">Clippers Psy</a></div>
+								<div class="modelo"><a href="productdisplay">Clippers Psy</a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço">Preço 4€</div>
 							</div>

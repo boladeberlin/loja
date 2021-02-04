@@ -1,27 +1,46 @@
-<html>
+<html
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="https://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
 		<title>Blaze It</title>
 		<link rel="stylesheet" href="Product.css">
-		<link rel = "icon" href ="Media/Home/logo.png" type = "image/x-icon"> 
+		<link rel = "icon" href ="home/logo.png" type = "image/x-icon">
 	</head>
 	
 	<body id="home">
 		<div id="header">
-			<a href="/"><img src="Media/Home/logo.png" class="logo"></a>
+			<a href="/"><img src="home/logo.png" class="logo"></a>
 			<div class="search-container">
 				<form action="X">
 					<input type="text" placeholder="Search.." name="search">
 					<button type="submit">Pesquisa </button>
 				</form>
 				<a href="advanced_search" class="asearch">Advanced Search</a>
+				<!--NÃO LOGGED IN-->
+				<div sec:authorize="isAnonymous()">
+					<a th:href="@{/login}">Login</a>
+					<span style="padding-left: 10px; padding-right: 10px"> | </span>
+					<a th:href="@{/join}">Join</a>
+				</div>
+
+				<!--LOGGED IN-->
+				<div sec:authorize="isAuthenticated()">
+					<span style="color:white">Olá,  </span>
+					<a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
+					<span style="padding-left: 10px; padding-right: 10px"> | </span>
+					<form th:action="@{/logout}" method="post" style="display: inline-block;">
+						<input type="submit" class="signOut" value="Logout">
+					</form>
+				</div>
 			</div>
 			
 		</div>
 		<div id="show">
 			<div id="product">
-				<a href="Media/Products/Clippers/clipper1.jpg"><img src="Media/Products/Clippers/clipper1.jpg"></a>
+				<a href="products/Clippers/clipper1.jpg"><img src="products/Clippers/clipper1.jpg"></a>
 				<div class="info">Desccrição do produto irá num futuro próximo ser escrita dentro desta tag p, para todos ficarem a saber oq ue é este produto</div>
 				<div class="values">
 					<p class="price">Preço: 9.99€</p>

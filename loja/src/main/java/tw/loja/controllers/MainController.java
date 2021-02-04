@@ -1,7 +1,11 @@
 package tw.loja.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +17,11 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 import tw.loja.security.StaticResourceConfiguration;
 import tw.loja.services.UtilizadorService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -28,17 +36,45 @@ public class MainController extends StaticResourceConfiguration {
 
     @GetMapping(value="/")
     public String home(Model model) {
-        //model.addAttribute("ultimosRegistos", registoService.getUltimosRegistos());
         return "index";
+    }
+
+    @GetMapping(value="/index")
+    public String index(Model model) {
+        return "index";
+    }
+
+    @GetMapping(value="/advanced_search")
+    public String search(Model model) {
+        return "advanced_search";
+    }
+
+    @GetMapping(value="/productdisplay")
+    public String product(Model model) {
+        return "productdisplay";
+    }
+
+    @GetMapping(value="/admin")
+    public String admin(Model model) {
+        Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)
+                SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+
+        System.out.println(authorities);
+
+        if (authorities.equals("ADMIN"))
+            return "admin";
+        else
+            return "error";
     }
 
 
     @GetMapping(value = "/login")
     public String login(Principal principal){
+        System.out.println(principal);
         if(principal == null)
             return "login";
         else
-            return home(null);
+        return "index";
     }
 
     @GetMapping(value = "/join")
