@@ -1,5 +1,5 @@
 create table produto(
-    id serial primary key,
+    id int primary key,
     nome varchar(50) not null,
     preco decimal(5,2) not null,
     cor varchar(50),
