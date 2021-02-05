@@ -22,9 +22,12 @@
 
 
 			<div class="search-container">
-				<form th:action="@{/}">
-					<input type="text" placeholder="Search.." name="keyword", id="keyword" th:value="${keyword}" required>
-					<button type="submit" value="Search">Pesquisa </button>
+				<form th:object="${produto}" method="post">
+					<div>
+						<label for="produtos">Subject: </label>
+						<input type="text" name="produtos" th:field="*{produtos}">
+						<input type="submit" value="Search">
+					</div>
 				</form>
 				<a href="advanced_search" class="asearch">Advanced Search</a>
 				<!--NÃO LOGGED IN-->
@@ -46,25 +49,17 @@
 			
 		</div>
 			<div id="products">
-				<div class="pages">
-				
-					<div class="counter">A mostrar 5 de 25</div>
-					
-					<div class="page" id="page1">
-						<div class="produto" th:each="product : ${listProducts}">
+				<div th:each="produto: ${produtos}">
+						<div class="produto">
 							<a href="productdisplay">
 								<img src="products/Clippers/clipper1.jpg"></a>
 							<div class="texto">
-								<div class="modelo"><a href="productdisplay"><td th:text="${product.nome}">Name</td></a></div>
+								<div class="modelo"><a href="productdisplay" th:text="${produto.nome}"></a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
-								<div class="preço"><td th:text="${product.preco}">Price</td></div>
+								<div class="preço">Preço 4€</div>
 							</div>
 						</div>
-
-					</div>
-
 				</div>
-
 			</div>
 			
 			<div id="categories">

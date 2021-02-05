@@ -3,6 +3,7 @@ package tw.loja.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +24,8 @@ import tw.loja.services.UtilizadorService;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -36,11 +39,11 @@ public class MainController extends StaticResourceConfiguration {
     @Autowired
     private ProdutoService produtoService;
 
-    //@Autowired
-    //private RegistoService registoService;
-
-    @GetMapping(value="/")
-    public String home(Model model) {
+    @RequestMapping(value="/")
+    public String home(Model model, @Param("keyword") String keyword) {
+        List<Produto> listProducts = produtoService.listAll(keyword);
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("keyword", keyword);
         return "index";
     }
 
@@ -79,6 +82,7 @@ public class MainController extends StaticResourceConfiguration {
             return "admin";
         return "admin";
     }
+
 
     @GetMapping(value = "/login")
     public String login(Principal principal){
