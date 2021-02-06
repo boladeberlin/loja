@@ -47,15 +47,30 @@ public class MainController extends StaticResourceConfiguration {
         return "index";
     }
 
+    @GetMapping("/advanced_search")
+    public String advancedSearch1(Model model) {
+            Produto novo = new Produto();
+            model.addAttribute("Produto", novo);
+            return "advanced_search";
+    }
+
+    @RequestMapping(value = "/advanced_search")
+    public String advancedSearch(Model model,@ModelAttribute("Produto") Produto produto,@Param("marca") String marca, @Param("cor") String cor, @Param("fuel") String fuel) {
+
+        marca = produto.getMarca();
+        cor = produto.getCor();
+        fuel = produto.getFuel();
+        List<Produto> listProducts = produtoService.findProduto(cor, marca, fuel);
+        model.addAttribute("listProducts", listProducts);
+        return "index";
+
+    }
+
     @GetMapping(value="/index")
     public String index(Model model) {
         return "index";
     }
 
-    @GetMapping(value="/advanced_search")
-    public String search(Model model) {
-        return "advanced_search";
-    }
 
     @GetMapping(value="/productdisplay")
     public String product(Model model) {
@@ -86,7 +101,6 @@ public class MainController extends StaticResourceConfiguration {
 
     @GetMapping(value = "/login")
     public String login(Principal principal){
-        System.out.println(principal);
         if(principal == null)
             return "login";
         else

@@ -30,6 +30,14 @@ public class ProdutoService {
         return true;
     }
 
+    public List<Produto> findProduto(String cor, String marca, String fuel) {
+        System.out.println(cor);
+        System.out.println(fuel);
+        System.out.println(marca);
+        System.out.println(produtoRepository.find(cor, fuel, marca));
+    return produtoRepository.find(cor, fuel, marca);
+    }
+
     public List<Produto> listAll(String keyword) {
         if (keyword != null) {
             return produtoRepository.search(keyword);
