@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
+    <title>Blaze It</title>
+    <link rel = "icon" href ="home/logo.png" type = "image/x-icon">
+    <title>Product Manager</title>
+</head>
+<body>
+<div align="center">
+
+    <h1>Product Manager</h1>
+
+    <br/><br/>
+
+    <br/><br/>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID Produto</th>
+            <th>Nome</th>
+            <th>Preco</th>
+            <th>Cor</th>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th>Fuel</th>
+
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listProducts}">
+            <td th:text="${product.id}">ID Produto</td>
+            <td th:text="${product.nome}">Nome</td>
+            <td th:text="${product.preco}">Preco</td>
+            <td th:text="${product.cor}">Cor</td>
+            <td th:text="${product.marca}">Marca</td>
+            <td th:text="${product.tipo}">Tipo</td>
+            <td th:text="${product.fuel}">Fuel</td>
+            <td>
+
+                <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

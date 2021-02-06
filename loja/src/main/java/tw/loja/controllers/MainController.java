@@ -121,6 +121,21 @@ public class MainController extends StaticResourceConfiguration {
         return "join";
     }
 
+    @RequestMapping(value="/delete")
+    public String delete(Model model, @Param("keyword") String keyword) {
+        List<Produto> listProducts = produtoService.listAll(keyword);
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("keyword", keyword);
+        return "delete";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable(name = "id") Long id) {
+        produtoService.delete(id);
+
+        return "redirect:/";
+    }
+
     @GetMapping("/error")
     public String error() {
         return "error";

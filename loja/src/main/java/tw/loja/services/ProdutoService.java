@@ -48,4 +48,8 @@ public class ProdutoService {
     public Produto findById(long id) {
         return this.findById(id);
     }
+
+    public void delete(Long id) {
+        produtoRepository.deleteById(id);
+    }
 }
