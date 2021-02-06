@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll()
             .and()
             .logout().deleteCookies("JSESSION")
-            .logoutSuccessUrl("/index")
+            .logoutSuccessUrl("/")
             .permitAll();
 
     }
