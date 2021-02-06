@@ -11,11 +11,11 @@
 	
 	<body id="home">
 		<div id="header">
-			<a href="index"><img src="home/logo.png" class="logo"></a>
+			<a href="/"><img src="home/logo.png" class="logo"></a>
 			<div class="search-container">
-				<form action="X">
-					<input type="text" placeholder="Search.." name="search">
-					<button type="submit">Pesquisa </button>
+				<form th:action="@{/}">
+					<input type="text" placeholder="Search.." name="keyword", id="keyword" th:value="${keyword}" required>
+					<button type="submit" value="Search">Pesquisa </button>
 				</form>
 				<a href="advanced_search" class="asearch">Advanced Search</a>
 				<!--NÃO LOGGED IN-->
@@ -99,13 +99,13 @@
 					
 				</form>
 			</div>
-			
+
 			<div id="categories">
-				<a href="#">Clippers</a>
-				<a href="#">Eletricos</a>
-				<a href="#">Zippos</a>
-				<a href="#">Wind Proof</a>
-				<a href="#">Outros</a>
+				<a href="/?keyword=Clippers">Clippers</a>
+				<a href="/?keyword=Eléctricos">Eletricos</a>
+				<a href="/?keyword=Zippos">Zippos</a>
+				<a href="/?keyword=WindProof">Wind Proof</a>
+				<a href="/?keyword=Outros">Outros</a>
 			</div>
 		</div>
 		<div id="about">

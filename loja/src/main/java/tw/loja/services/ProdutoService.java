@@ -37,4 +37,7 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public Produto findById(long id) {
+        return this.findById(id);
+    }
 }

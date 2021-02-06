@@ -14,9 +14,9 @@
 		<div id="header">
 			<a href="/"><img src="home/logo.png" class="logo"></a>
 			<div class="search-container">
-				<form action="X">
-					<input type="text" placeholder="Search.." name="search">
-					<button type="submit">Pesquisa </button>
+				<form th:action="@{/}">
+					<input type="text" placeholder="Search.." name="keyword", id="keyword" th:value="${keyword}" required>
+					<button type="submit" value="Search">Pesquisa </button>
 				</form>
 				<a href="advanced_search" class="asearch">Advanced Search</a>
 				<!--NÃO LOGGED IN-->
@@ -43,7 +43,7 @@
 				<a href="products/Clippers/clipper1.jpg"><img src="products/Clippers/clipper1.jpg"></a>
 				<div class="info">Desccrição do produto irá num futuro próximo ser escrita dentro desta tag p, para todos ficarem a saber oq ue é este produto</div>
 				<div class="values">
-					<p class="price">Preço: 9.99€</p>
+					<p class="price"th:text="*{product.getPreco()}">Preço:</p>
 					<p class="tax">Taxa de transporte: 3.00€</p>
 					<time>Data limite de entrega: 27/11/2020</time>
 					<p class="payment">Métodos de pagamento: Multibanco</p>
@@ -54,13 +54,13 @@
 					</form>
 				</div>
 			</div>
-			
+
 			<div id="categories">
-				<a href="#">Clippers</a>
-				<a href="#">Eletricos</a>
-				<a href="#">Zippos</a>
-				<a href="#">Wind Proof</a>
-				<a href="#">Outros</a>
+				<a href="/?keyword=Clippers">Clippers</a>
+				<a href="/?keyword=Eléctricos">Eletricos</a>
+				<a href="/?keyword=Zippos">Zippos</a>
+				<a href="/?keyword=WindProof">Wind Proof</a>
+				<a href="/?keyword=Outros">Outros</a>
 			</div>
 		</div>
 		<div id="about">
