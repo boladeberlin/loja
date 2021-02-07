@@ -6,13 +6,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
 		<title>Blaze It</title>
-		<link rel="stylesheet" href="Product.css">
+		<link rel="stylesheet" th:href="@{/Product.css}">
 		<link rel = "icon" href ="home/logo.png" type = "image/x-icon">
 	</head>
 	
 	<body id="home">
 		<div id="header">
-			<a href="/"><img src="home/logo.png" class="logo"></a>
+			<a href="/"><img th:src="@{/home/logo.png}" class="logo"></a>
 			<div class="search-container">
 				<form th:action="@{/}">
 					<input type="text" placeholder="Search.." name="keyword", id="keyword" th:value="${keyword}" required>
@@ -29,7 +29,7 @@
 				<!--LOGGED IN-->
 				<div sec:authorize="isAuthenticated()">
 					<span style="color:white">Olá,  </span>
-					<a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
+					<a th:href="@{/admin}" th:method="post" sec:authentication="name"></a>
 					<span style="padding-left: 10px; padding-right: 10px"> | </span>
 					<form th:action="@{/logout}" method="post" style="display: inline-block;">
 						<input type="submit" class="signOut" value="Logout">
@@ -39,11 +39,13 @@
 			
 		</div>
 		<div id="show">
-			<div id="product">
-				<a href="products/Clippers/clipper1.jpg"><img src="products/Clippers/clipper1.jpg"></a>
+			<div id="product" th:each="product : ${listProducts}">
+				<p class="nomeproduto"><td th:text="${product.nome}"></td></p>
+				<br>
+				<a href="products/Clippers/clipper1.jpg"><img th:src="@{${'/products/'+ product.id+'.jpg'}}"></a>
 				<div class="info">Desccrição do produto irá num futuro próximo ser escrita dentro desta tag p, para todos ficarem a saber oq ue é este produto</div>
 				<div class="values">
-					<p class="price"th:text="*{product.getPreco()}">Preço:</p>
+					<p class="price">Preço:<td th:text="${product.preco}">€</td></p>
 					<p class="tax">Taxa de transporte: 3.00€</p>
 					<time>Data limite de entrega: 27/11/2020</time>
 					<p class="payment">Métodos de pagamento: Multibanco</p>

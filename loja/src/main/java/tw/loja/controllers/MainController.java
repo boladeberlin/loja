@@ -2,32 +2,21 @@ package tw.loja.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import tw.loja.data.Produto;
 import tw.loja.data.Utilizador;
-import org.springframework.web.servlet.resource.PathResourceResolver;
 //import tw.loja.services.RegistoService;
 import tw.loja.security.StaticResourceConfiguration;
 import tw.loja.services.ProdutoService;
 import tw.loja.services.UtilizadorService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 
 @Controller
@@ -71,9 +60,17 @@ public class MainController extends StaticResourceConfiguration {
         return "index";
     }
 
+    @GetMapping("/productdisplay")
+    public String product1(Model model) {
+        Produto novo = new Produto();
+        model.addAttribute("Produto", novo);
+        return "productdisplay";
+    }
 
-    @GetMapping(value="/productdisplay")
-    public String product(Model model) {
+    @RequestMapping(value="/productdisplay/{id}")
+    public String product(Model model,@PathVariable(name = "id") Long id) {
+        List<Produto> listProducts = produtoService.findByIdProduto(id);
+        model.addAttribute("listProducts", listProducts);
         return "productdisplay";
     }
 
@@ -87,7 +84,7 @@ public class MainController extends StaticResourceConfiguration {
             model.addAttribute("Produto", novo);
             return "admin";
         }else{
-            return "index";
+            return "/";
         }
     }
 
@@ -95,7 +92,8 @@ public class MainController extends StaticResourceConfiguration {
     public String admninPost(@ModelAttribute("Produto") Produto produto) {
         if(produtoService.createProduto(produto.getId(),produto.getNome(),produto.getPreco(),produto.getCor(), produto.getMarca(), produto.getFuel(),produto.getTipo()))
             return "admin";
-        return "admin";
+        else
+            return "/";
     }
 
 
@@ -123,16 +121,20 @@ public class MainController extends StaticResourceConfiguration {
 
     @RequestMapping(value="/delete")
     public String delete(Model model, @Param("keyword") String keyword) {
-        List<Produto> listProducts = produtoService.listAll(keyword);
-        model.addAttribute("listProducts", listProducts);
-        model.addAttribute("keyword", keyword);
-        return "delete";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
+            List<Produto> listProducts = produtoService.listAll(keyword);
+            model.addAttribute("listProducts", listProducts);
+            model.addAttribute("keyword", keyword);
+            return "/delete";
+        }else{
+            return "/";
+        }
     }
 
     @RequestMapping("/delete/{id}")
     public String deleteProduct(@PathVariable(name = "id") Long id) {
         produtoService.delete(id);
-
         return "redirect:/";
     }
 

@@ -1,53 +1,87 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="https://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, max-width=1028px">
     <title>Blaze It</title>
+    <link rel="stylesheet" href="Product.css">
     <link rel = "icon" href ="home/logo.png" type = "image/x-icon">
-    <title>Product Manager</title>
 </head>
-<body>
-<div align="center">
 
-    <h1>Product Manager</h1>
+<body id="home">
+<div id="header">
+    <a href="/"><img src="home/logo.png" class="logo"></a>
+    <div class="search-container">
+        <form th:action="@{/}">
+            <input type="text" placeholder="Search.." name="keyword", id="keyword" th:value="${keyword}" required>
+            <button type="submit" value="Search">Pesquisa </button>
+        </form>
+        <a href="advanced_search" class="asearch">Advanced Search</a>
+        <!--NÃO LOGGED IN-->
+        <div sec:authorize="isAnonymous()">
+            <a th:href="@{/login}">Login</a>
+            <span style="padding-left: 10px; padding-right: 10px"> | </span>
+            <a th:href="@{/join}">Join</a>
+        </div>
 
-    <br/><br/>
+        <!--LOGGED IN-->
+        <div sec:authorize="isAuthenticated()">
+            <span style="color:white">Olá,  </span>
+            <a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
+            <span style="padding-left: 10px; padding-right: 10px"> | </span>
+            <form th:action="@{/logout}" method="post" style="display: inline-block;">
+                <input type="submit" class="signOut" value="Logout">
+            </form>
+        </div>
+    </div>
 
-    <br/><br/>
+</div>
+<div id="show">
+    <div id="product">
+        <table border="1" cellpadding="10" backgroung-color="orange">
+            <thead>
+            <tr>
+                <th>ID Produto</th>
+                <th>Nome</th>
+                <th>Preco</th>
+                <th>Cor</th>
+                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Fuel</th>
 
-    <table border="1" cellpadding="10">
-        <thead>
-        <tr>
-            <th>ID Produto</th>
-            <th>Nome</th>
-            <th>Preco</th>
-            <th>Cor</th>
-            <th>Marca</th>
-            <th>Tipo</th>
-            <th>Fuel</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${listProducts}">
+                <td th:text="${product.id}">ID Produto</td>
+                <td th:text="${product.nome}">Nome</td>
+                <td th:text="${product.preco}">Preco</td>
+                <td th:text="${product.cor}">Cor</td>
+                <td th:text="${product.marca}">Marca</td>
+                <td th:text="${product.tipo}">Tipo</td>
+                <td th:text="${product.fuel}">Fuel</td>
+                <td>
 
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="product : ${listProducts}">
-            <td th:text="${product.id}">ID Produto</td>
-            <td th:text="${product.nome}">Nome</td>
-            <td th:text="${product.preco}">Preco</td>
-            <td th:text="${product.cor}">Cor</td>
-            <td th:text="${product.marca}">Marca</td>
-            <td th:text="${product.tipo}">Tipo</td>
-            <td th:text="${product.fuel}">Fuel</td>
-            <td>
+                    <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-                <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div id="categories">
+        <a href="/?keyword=Clippers">Clippers</a>
+        <a href="/?keyword=Eléctricos">Eletricos</a>
+        <a href="/?keyword=Zippos">Zippos</a>
+        <a href="/?keyword=WindProof">Wind Proof</a>
+        <a href="/?keyword=Outros">Outros</a>
+    </div>
+</div>
+<div id="about">
+    <a href="X">About this page</a>
 </div>
 
 </body>

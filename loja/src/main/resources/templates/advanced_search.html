@@ -28,7 +28,7 @@
 				<!--LOGGED IN-->
 				<div sec:authorize="isAuthenticated()">
 					<span style="color:white">Olá,  </span>
-					<a th:href="@{/account/registos}" th:method="post" sec:authentication="name"></a>
+					<a th:href="@{/admin}" th:method="post" sec:authentication="name"></a>
 					<span style="padding-left: 10px; padding-right: 10px"> | </span>
 					<form th:action="@{/logout}" method="post" style="display: inline-block;">
 						<input type="submit" class="signOut" value="Logout">
@@ -56,7 +56,7 @@
 
 					<div class="fuel">
 						<p>Combústivel</p>
-						<input id = "fuel1" name="fuel" type = "radio" value="Gás" th:field="*{fuel}"CHECKED>
+						<input id = "fuel1" name="fuel" type = "radio" value="Gás" th:field="*{fuel}">
 						<label for = "fuel1">Gás</label>
 						<input id = "fuel2" name="fuel" type = "radio" value="Benzina" th:field="*{fuel}">
 						<label for = "fuel2">Benzina</label>
@@ -66,7 +66,7 @@
 
 					<div class="color">
 						<p>Cor</p>
-						<input type="radio" id="cor1" name="cor1" value="Azul" th:field="*{cor} "CHECKED>
+						<input type="radio" id="cor1" name="cor1" value="Azul" th:field="*{cor} ">
 						<label for="cor1">Azul</label>
 						<input type="radio" id="cor2" name="cor2" value="Amarelo" th:field="*{cor}">
 						<label for="cor2">Amarelo</label>

@@ -7,7 +7,9 @@ import tw.loja.data.Produto;
 import java.util.List;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
-    Produto findById(long id);
+
+
+    List<Produto> findById(long id);
 
     //List<Produto> findProdutoByCorAndFuelAndMarca(String cor, String fuel, String marca);
 

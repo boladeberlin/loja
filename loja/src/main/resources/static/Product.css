@@ -124,7 +124,7 @@ body{
 	color:white;
 	float:right;
 	margin:auto;
-	margin-bottom:25px;
+	padding-top: 10px;
 	display:block;
 	width:78%;
 	font-family:"Arial Black", Gadget, sans-serif;
@@ -203,7 +203,17 @@ body{
 		background-color:rgb(255, 51, 0,0.8);
 	}
 
-	
+#product .nomeproduto{
+	margin-left:10px;
+	display:inline;
+	font-size:30px;
+	color:orange;
+	padding:5px 5px 5px 5px;
+	border-style:solid;
+	border-color:orange;
+	border-radius:5px;
+	background-color:rgb(255, 51, 0,0.8);
+}
 	@media screen and (max-width: 600px) {
 		
 		#product img{
@@ -248,4 +258,12 @@ body{
 
 #about a:hover{
 	color:red;
+}
+
+table{
+	background-color: white;
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	color: orange;
 }

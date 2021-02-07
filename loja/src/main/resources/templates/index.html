@@ -36,7 +36,8 @@
 
 				<!--LOGGED IN-->
 				<div sec:authorize="isAuthenticated()">
-					<span style="color:white">Olá, [[${#httpServletRequest.remoteUser}]]! </span>
+					<span style="color:white">Olá,  </span>
+					<a th:href="@{/admin}" th:method="post" sec:authentication="name"></a>
 					<span style="padding-left: 10px; padding-right: 10px"> | </span>
 					<form th:action="@{/logout}" method="post" style="display: inline-block;">
 						<input type="submit" class="signOut" value="Logout">
@@ -53,9 +54,9 @@
 					<div class="page" id="page1">
 						<div class="produto" th:each="product : ${listProducts}">
 							<a href="productdisplay">
-								<img src="products/Clippers/clipper1.jpg"></a>
+								<img th:src="@{${'/products/'+ product.id+'.jpg'}}"></a>
 							<div class="texto">
-								<div class="modelo"><a href="productdisplay"><td th:text="${product.nome}">Name</td></a></div>
+								<div class="modelo"><a th:href="@{'/productdisplay/' + ${product.id}}"><td th:text="${product.nome}">Name</td></a></div>
 								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
 								<div class="preço"><td th:text="${product.preco}">Price</td></div>
 							</div>
