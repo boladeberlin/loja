@@ -57,7 +57,7 @@
 								<img th:src="@{${'/products/'+ product.id+'.jpg'}}"></a>
 							<div class="texto">
 								<div class="modelo"><a th:href="@{'/productdisplay/' + ${product.id}}"><td th:text="${product.nome}">Name</td></a></div>
-								<div class="descrição">Isqueiro que se distingue pela sua qualidade de construção</div>
+								<div class="descrição"><td th:text="${product.descricao}"></div>
 								<div class="preço"><td th:text="${product.preco}">Price</td>€</div>
 							</div>
 						</div>

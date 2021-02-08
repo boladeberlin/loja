@@ -13,7 +13,7 @@
 		}
 
 		.Login{
-			background-color: Transparent;
+			background-color: orangered;
 			background-repeat:no-repeat;
 			border: none;
 			cursor:pointer;
@@ -22,13 +22,10 @@
 			outline:none;
 			font-weight: bold; font-size: 25px;
 		}
-
-		.LoginJoinText{
-			color: #dcdcdc;
-			font-weight: bold;
-			font-size: 25px;
+		body {
+			background-image: url('/home/background.jpg');
+			background-size: 100%;
 		}
-
 	</style>
 
 </head>
@@ -39,7 +36,7 @@
 
 
 		<form th:action="@{/login}" method="post" style="text-align: center; padding-top: 100px">
-			<span style="font-size: 46px; line-height: 1.7; font-weight: bolder">LOGIN</span>
+			<span style="font-size: 100px; color:darkorange; font-weight: bold;">LOGIN</span>
 			<div th:if="${param.logout}" style="color: red">Fez log out.</div>
 			<div th:if="${param.error}" style="color: #ff0000">Username ou palavra-passe errados.</div>
 			<div style="padding-top: 40px"> <input type="text" name="username" placeholder="USERNAME" style="text-align: center;height: 40px; width: 30%; color: #212121"/></div>

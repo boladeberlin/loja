@@ -34,14 +34,18 @@
                 <input type="submit" class="signOut" value="Logout">
             </form>
         </div>
-        <a th:href="@{/delete}">Delete</a>
-    </div>
+            <a class="asearch" th:href="@{/delete}">Delete</a>
+        </div>
 </div>
 <div id="show">
     <div id="search">
         <form th:action="@{/admin}" th:object="${Produto}"method="post">
             <div class="prange">
-                <input type="text" th:field="*{nome}" placeholder="Nome do produto" name="search"/>
+                <input type="text" id="name" th:field="*{nome}" placeholder="Nome do produto" name="search"/>
+            </div>
+
+            <div class="prange">
+                <textarea th:field="*{descricao}" placeholder="Descrição do produto" name="search" cols="30" rows="5"></textarea>
             </div>
 
 
@@ -111,6 +115,10 @@
                 <p>Valor</p>
                 <label for="price">Valor: </label>
                 <input type="text" th:field="*{preco}" id="price" name="min_price" value="0€"/>
+            </div>
+
+            <div>
+                <input type="file" id="fileInput" th:name="file">
             </div>
 
             <input type="submit" value="Introduzir"/>

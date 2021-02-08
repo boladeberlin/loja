@@ -1,6 +1,7 @@
 package tw.loja.data;
 
 import javax.persistence.*;
+import java.io.File;
 
 @Entity
 @Table(name = "produto")
@@ -20,8 +21,11 @@ public class Produto {
     private String fuel;
     @Column(name = "tipo")
     private String tipo;
+    @Column(name = "descricao")
+    private String descricao;
+    private File image;
 
-    public Produto(long id, String nome, float preco, String cor, String marca, String fuel, String tipo) {
+    public Produto(long id, String nome, float preco, String cor, String marca, String fuel, String tipo, String descricao, File image) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
@@ -29,6 +33,16 @@ public class Produto {
         this.marca = marca;
         this.fuel = fuel;
         this.tipo = tipo;
+        this.descricao = descricao;
+        this.image = image;
+    }
+
+    public File getImage() {
+        return image;
+    }
+
+    public void setImage(File image) {
+        this.image = image;
     }
 
     public Produto() {
@@ -37,6 +51,14 @@ public class Produto {
 
     public long getId() {
         return id;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 
     public void setId(long id) {

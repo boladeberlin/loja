@@ -8,7 +8,7 @@
     }
 
     .Join{
-        background-color: Transparent;
+        background-color: orangered;
         background-repeat:no-repeat;
         border: none;
         cursor:pointer;
@@ -18,12 +18,10 @@
         font-weight: bold; font-size: 25px;
     }
 
-    .LoginJoinText{
-        color: #dcdcdc;
-        font-weight: bold;
-        font-size: 25px;
-    }
-
+     body {
+         background-image: url('/home/background.jpg');
+         background-size: 100%;
+     }
 </style>
 
 
@@ -35,9 +33,7 @@
         <form th:action="@{/join}" th:object="${Utilizador}" method="post"
               style="text-align: center; padding-top: 100px">
             <div>
-                <span style="font-size: 46px; line-height: 1.7; font-weight: bolder">JOIN </span>
-                <span style="font-size: 46px; line-height: 1.7;">COM<span style="font-size: 46px; letter-spacing: -10px; line-height: 0;">_</span></span>
-                <span style="font-weight: bolder; font-size: 46px; line-height: 1.7;">UNIDADE</span>
+                <span style="font-size: 100px; color:darkorange; font-weight: bold;">REGISTO</span>
             </div>
             <div style="padding-top: 40px">
                 <div th:if="${param.username}"><p style="color: red">Username ou Password não válidos</p></div>

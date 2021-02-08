@@ -6,5 +6,4 @@ import tw.loja.data.Permissao;
 
 @Repository
 public interface PermissaoRepository extends CrudRepository<Permissao, String> {
-
 }

@@ -2,8 +2,6 @@ package tw.loja.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tw.loja.data.Permissao;
-import tw.loja.data.Utilizador;
 import tw.loja.data.Produto;
 import tw.loja.repository.ProdutoRepository;
 
@@ -14,7 +12,7 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public boolean createProduto(long id, String nome, float preco, String cor, String marca, String fuel, String tipo) {
+    public boolean createProduto(long id, String nome, float preco, String cor, String marca, String fuel, String tipo, String descricao) {
         if(this.produtoRepository.findById(id) != null)
             return false;
 
@@ -26,15 +24,12 @@ public class ProdutoService {
         novo.setMarca(marca);
         novo.setFuel(fuel);
         novo.setTipo(tipo);
+        novo.setDescricao(descricao);
         this.produtoRepository.save(novo);
         return true;
     }
 
     public List<Produto> findProduto(String cor, String marca, String fuel) {
-        System.out.println(cor);
-        System.out.println(fuel);
-        System.out.println(marca);
-        System.out.println(produtoRepository.find(cor, fuel, marca));
     return produtoRepository.find(cor, fuel, marca);
     }
 

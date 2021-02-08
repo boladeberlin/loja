@@ -5,7 +5,9 @@ create table produto(
     cor varchar(50),
     marca varchar(50),
     fuel varchar(50),
-    tipo varchar(50)
+    tipo varchar(50),
+    descricao varchar(250),
+    image bytea
 );
 
 create table carrinhocompras(

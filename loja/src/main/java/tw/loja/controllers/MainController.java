@@ -10,17 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tw.loja.data.Produto;
 import tw.loja.data.Utilizador;
-//import tw.loja.services.RegistoService;
-import tw.loja.security.StaticResourceConfiguration;
 import tw.loja.services.ProdutoService;
 import tw.loja.services.UtilizadorService;
-
 import java.security.Principal;
 import java.util.List;
 
 
 @Controller
-public class MainController extends StaticResourceConfiguration {
+public class MainController {
 
 
     @Autowired
@@ -77,23 +74,24 @@ public class MainController extends StaticResourceConfiguration {
 
 
     @GetMapping("/admin")
-    public String getUsers(Model model) {
+    public String getAdmin(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
             Produto novo = new Produto();
             model.addAttribute("Produto", novo);
             return "admin";
         }else{
-            return "/";
+            return "redirect:/";
         }
     }
 
     @PostMapping(value = "/admin")
     public String admninPost(@ModelAttribute("Produto") Produto produto) {
-        if(produtoService.createProduto(produto.getId(),produto.getNome(),produto.getPreco(),produto.getCor(), produto.getMarca(), produto.getFuel(),produto.getTipo()))
-            return "admin";
-        else
-            return "/";
+        if(produtoService.createProduto(produto.getId(),produto.getNome(),produto.getPreco(),produto.getCor(), produto.getMarca(), produto.getFuel(),produto.getTipo(),produto.getDescricao())) {
+            return "/admin";
+        }else{
+            return "redirect:/";
+        }
     }
 
 
@@ -102,7 +100,7 @@ public class MainController extends StaticResourceConfiguration {
         if(principal == null)
             return "login";
         else
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/join")
@@ -128,7 +126,7 @@ public class MainController extends StaticResourceConfiguration {
             model.addAttribute("keyword", keyword);
             return "delete";
         }else{
-            return "/";
+            return "redirect:/";
         }
     }
 
