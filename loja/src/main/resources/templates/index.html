@@ -49,7 +49,7 @@
 			<div id="products">
 				<div class="pages">
 				
-					<div class="counter">A mostrar 5 de 25</div>
+					<div class="counter"></div>
 					
 					<div class="page" id="page1">
 						<div class="produto" th:each="product : ${listProducts}">
@@ -57,8 +57,8 @@
 								<img th:src="@{${'/products/'+ product.id+'.jpg'}}"></a>
 							<div class="texto">
 								<div class="modelo"><a th:href="@{'/productdisplay/' + ${product.id}}"><td th:text="${product.nome}">Name</td></a></div>
-								<div class="descrição">Coleção clippers psy com suas imagens psicadelicas</div>
-								<div class="preço"><td th:text="${product.preco}">Price</td></div>
+								<div class="descrição">Isqueiro que se distingue pela sua qualidade de construção</div>
+								<div class="preço"><td th:text="${product.preco}">Price</td>€</div>
 							</div>
 						</div>
 

@@ -126,7 +126,7 @@ public class MainController extends StaticResourceConfiguration {
             List<Produto> listProducts = produtoService.listAll(keyword);
             model.addAttribute("listProducts", listProducts);
             model.addAttribute("keyword", keyword);
-            return "/delete";
+            return "delete";
         }else{
             return "/";
         }
